@@ -42,6 +42,7 @@
 .containerAbout span h1 {
     font-size: 45px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .containerAbout div p {
