@@ -158,7 +158,7 @@ const HomeStructure: React.FC = () => {
                 </div>
             </div>
             <div className={styles.containerWhatss} title='Chamar no WhatsApp' onClick={() => handleMensagem()}>
-                <FaWhatsapp size={50} color="#fff" />
+                <FaWhatsapp size={width >767 ? 50 : 30 } color="#fff" />
             </div>
         </div >
     );
