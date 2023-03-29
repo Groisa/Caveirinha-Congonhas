@@ -11,16 +11,20 @@ const HomeStructure: React.FC = () => {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.containerAbout}>
-                    <div>
+                    <span>
                         <h1>𝓙𝓲𝓾-𝓙𝓲𝓽𝓼𝓾</h1>
-                    </div>
+                    </span>
                     <div>
-                        <p>Inicio</p>
-                        <p>Sobre</p>
-                        <p>Projetos Sociais</p>
-                        <p>Contato</p>
-                        <FaInstagram color='#fff' size={25} />
-                        <FaFacebook color='#fff' size={25} />
+                        <div>
+                            <p>Inicio</p>
+                            <p>Sobre</p>
+                            <p>Projetos Sociais</p>
+                        </div>
+                        <div>
+                            <p>Contato</p>
+                            <FaInstagram color='#fff' size={25} />
+                            <FaFacebook color='#fff' size={25} />
+                        </div>
                     </div>
                 </div>
                 <Image src={LogoCaveirinha} alt='logo caveirinha' className={styles.logo} />

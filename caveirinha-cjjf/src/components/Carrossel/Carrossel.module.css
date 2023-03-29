@@ -42,3 +42,10 @@
     opacity: 0.8;
     transform: scale(0.8);
 }
+@media(max-width:767px) {
+    .containerCarrosels{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
