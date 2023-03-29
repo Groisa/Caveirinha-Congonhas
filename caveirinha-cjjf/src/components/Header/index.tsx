@@ -12,7 +12,7 @@ const HomeStructure: React.FC = () => {
             <div className={styles.header}>
                 <div className={styles.containerAbout}>
                     <span>
-                        <h1>𝓙𝓲𝓾-𝓙𝓲𝓽𝓼𝓾</h1>
+                        <h1>𝓙𝓲𝓾 - 𝓙𝓲𝓽𝓼𝓾</h1>
                     </span>
                     <div>
                         <div>
