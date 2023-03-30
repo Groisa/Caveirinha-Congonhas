@@ -8,11 +8,17 @@ import Projeto1 from '../../assets/imgs/projeto1.png';
 import Projeto2 from '../../assets/imgs/projeto2.png';
 import Projeto3 from '../../assets/imgs/projeto3.png';
 import Projeto4 from '../../assets/imgs/projeto4.png';
+import Instagram from '../../assets/imgs/instagram.png'
+import Projeto9 from '../../assets/imgs/projeto9.png'
 import Image from 'next/image';
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import Carrossel from '../Carrossel';
+import CarrosselBootsTrap from '../Carrossel/carousel';
+import ModalComponente from '../Modal';
+
 const HomeStructure: React.FC = () => {
     const [width, setWidth] = useState<number>(0)
+    const [show, setShow] = useState<boolean>(false)
     useEffect(() => {
         if (typeof window !== undefined) {
             setWidth(window.screen.width)
@@ -33,14 +39,16 @@ const HomeStructure: React.FC = () => {
                         <h1>𝓙𝓲𝓾 - 𝓙𝓲𝓽𝓼𝓾</h1>
                     </span>
                     <div>
-                        <div>
-                            <p>Inicio</p>
-                            <p>Sobre</p>
-                            <p>Projetos Sociais</p>
+                        <div className={styles.textContainer2}>
+                            <p className={styles.text}><a href='#inicio'>Sobre</a></p>
+                            <p className={styles.text}><a href='#projetos'>Projetos Sociais</a></p>
                         </div>
                         <div>
-                            <FaInstagram color='#fff' size={25} />
-                            <FaFacebook color='#fff' size={25} />
+                            <FaInstagram style={{ cursor: 'pointer' }} color='#fff' size={25} onClick={() => setShow(true)} />
+                            <FaFacebook style={{ cursor: 'pointer' }} color='#fff' size={25}  onClick={() => {
+                                const link = 'https://www.facebook.com/rafael.leite.96558?mibextid=ZbWKwL'
+                                window.open(link)
+                            }}/>
                         </div>
                     </div>
                 </div>
@@ -49,11 +57,11 @@ const HomeStructure: React.FC = () => {
             </div>
             <div className={styles.containerInit}>
                 <div>
-                    <h2>
+                    <h2 id='inicio'>
                         Nosso objetivo é formar pessoas de caráter, através dos valores de amizade,
                         companheirismo e disciplina que pregamos em nossos treinamentos de Jiu Jitsu.
                     </h2>
-                    <h3>
+                    <h3 >
                         Acreditamos que o esporte é uma ferramenta poderosa para desenvolver
                         não apenas habilidades físicas, mas também habilidades sociais e emocionais.
                         Na nossa academia, incentivamos nossos alunos a serem respeitosos, solidários e
@@ -65,7 +73,7 @@ const HomeStructure: React.FC = () => {
                 <Carrossel />
             </div>
             <div className={styles.iframe}>
-                <h2>Nosso Projeto Social</h2>
+                <h2 id="projetos">Nosso Projeto Social</h2>
                 <iframe
                     width="auto"
                     height="auto"
@@ -144,10 +152,6 @@ const HomeStructure: React.FC = () => {
                             social e emocional das crianças, especialmente quando muitas delas vêm de famílias
                             desestruturadas.
                             <br />
-                            <br />
-                            Por fim, os projetos sociais também podem oferecer oportunidades educacionais e profissionais.
-                            Ao se engajar em atividades que estimulam o aprendizado e o desenvolvimento de habilidades, as
-                            crianças podem encontrar um caminho para o sucesso acadêmico e profissional.
                         </p>
                         {
                             width > 767 && (
@@ -155,10 +159,41 @@ const HomeStructure: React.FC = () => {
                             )
                         }
                     </div>
+                    <div className={styles.containerInformation}>
+                        <Image src={Projeto9} alt='logo caveirinha' className={styles.image} />
+                        <p>
+                            Por fim, os projetos sociais também podem oferecer oportunidades educacionais e profissionais.
+                            Ao se engajar em atividades que estimulam o aprendizado e o desenvolvimento de habilidades, as
+                            crianças podem encontrar um caminho para o sucesso acadêmico e profissional.
+                        </p>
+                    </div>
                 </div>
             </div>
+            <CarrosselBootsTrap />
+            <ModalComponente showModal={show} setShowModal={setShow} title={'Instagrams'} >
+                <div className={styles.containerDivInstagrams}>
+                    <div className={styles.containerIntagram}
+                        onClick={() => {
+                            const link = 'https://www.instagram.com/rafael_leitebjj'
+                            window.open(link)
+                        }}
+                    >
+                        <Image src={Instagram} alt='instagram' width={50} height={50} />
+                        <p>Rafael Felipe - Professor</p>
+                    </div>
+                    <div className={styles.containerIntagram}
+                        onClick={() => {
+                            const link = 'https://www.instagram.com/caveirinha_jj_congonhas'
+                            window.open(link)
+                        }}
+                    >
+                        <Image src={Instagram} alt='instagram' width={50} height={50} />
+                        <p>CJJF Congonhas - Página da Equipe</p>
+                    </div>
+                </div>
+            </ModalComponente>
             <div className={styles.containerWhatss} title='Chamar no WhatsApp' onClick={() => handleMensagem()}>
-                <FaWhatsapp size={width >767 ? 50 : 30 } color="#fff" />
+                <FaWhatsapp size={width > 767 ? 50 : 30} color="#fff" />
             </div>
         </div >
     );
