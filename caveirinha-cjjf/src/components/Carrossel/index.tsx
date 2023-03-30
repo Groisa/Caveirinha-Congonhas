@@ -28,7 +28,7 @@ const Carrossel: React.FC = () => {
                     </p>
                 </div>
                 <div className={styles.carrossel}>
-                    <Image src={Amizade} alt='logo caveirinha' className={styles.logo} />
+                    <Image src={Amizade} style={{height: '49%', marginTop: 15}} alt='logo caveirinha' className={styles.logo} />
                     <p>
                         O Jiu Jitsu é uma família que ensina valores como amizade, respeito e companheirismo. Além dos treinamentos no
                         tatame, os alunos se apoiam dentro e fora da academia, criando uma união forte entre eles.
