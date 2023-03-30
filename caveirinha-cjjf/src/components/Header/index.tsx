@@ -12,6 +12,7 @@ import Instagram from '../../assets/imgs/instagram.png'
 import Projeto9 from '../../assets/imgs/projeto9.png'
 import Image from 'next/image';
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { GoLocation } from "react-icons/go";
 import Carrossel from '../Carrossel';
 import CarrosselBootsTrap from '../Carrossel/carousel';
 import ModalComponente from '../Modal';
@@ -19,6 +20,7 @@ import ModalComponente from '../Modal';
 const HomeStructure: React.FC = () => {
     const [width, setWidth] = useState<number>(0)
     const [show, setShow] = useState<boolean>(false)
+    const [showMaps, setShowMaps] = useState<boolean>(false)
     useEffect(() => {
         if (typeof window !== undefined) {
             setWidth(window.screen.width)
@@ -45,10 +47,15 @@ const HomeStructure: React.FC = () => {
                         </div>
                         <div>
                             <FaInstagram style={{ cursor: 'pointer' }} color='#fff' size={25} onClick={() => setShow(true)} />
-                            <FaFacebook style={{ cursor: 'pointer' }} color='#fff' size={25}  onClick={() => {
+                            <FaFacebook style={{ cursor: 'pointer' }} color='#fff' size={25} onClick={() => {
                                 const link = 'https://www.facebook.com/rafael.leite.96558?mibextid=ZbWKwL'
                                 window.open(link)
-                            }}/>
+                            }} />
+                            <GoLocation style={{ cursor: 'pointer' }} color='#fff' size={25}
+                                onClick={() => {
+                                    setShowMaps(true)
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -57,6 +64,7 @@ const HomeStructure: React.FC = () => {
             </div>
             <div className={styles.containerInit}>
                 <div>
+                    <h2 style={{ color: '#000', fontSize: 35, marginBottom: 20 }}>- 𝐂𝐨𝐧𝐠𝐨𝐧𝐡𝐚𝐬 -</h2>
                     <h2 id='inicio'>
                         Nosso objetivo é formar pessoas de caráter, através dos valores de amizade,
                         companheirismo e disciplina que pregamos em nossos treinamentos de Jiu Jitsu.
@@ -190,6 +198,17 @@ const HomeStructure: React.FC = () => {
                         <Image src={Instagram} alt='instagram' width={50} height={50} />
                         <p>CJJF Congonhas - Página da Equipe</p>
                     </div>
+                </div>
+            </ModalComponente>
+            <ModalComponente showModal={showMaps} setShowModal={setShowMaps} title={'Localização'} >
+                <div className={styles.containerDivInstagrams}>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d779.9644111225864!2d-43.8703790098522!3d-20.504495866804277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa15b39edbe23fb%3A0x79269fa00807458!2sCaveirinha%20Jiu-Jitsu%20Family%20Academy!5e0!3m2!1spt-BR!2sbr!4v1680181950171!5m2!1spt-BR!2sbr"
+                        width="300" height="250"
+                        style={{ borderRadius: 10 }}
+                        loading="lazy" >
+
+                    </iframe>
                 </div>
             </ModalComponente>
             <div className={styles.containerWhatss} title='Chamar no WhatsApp' onClick={() => handleMensagem()}>
