@@ -202,6 +202,7 @@ const HomeStructure: React.FC = () => {
             </ModalComponente>
             <ModalComponente showModal={showMaps} setShowModal={setShowMaps} title={'Localização'} >
                 <div className={styles.containerDivInstagrams}>
+                    <p> Av. Conselheiro Lafaiete n°143, Bairro Dom Oscar, Congonhas MG</p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d779.9644111225864!2d-43.8703790098522!3d-20.504495866804277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa15b39edbe23fb%3A0x79269fa00807458!2sCaveirinha%20Jiu-Jitsu%20Family%20Academy!5e0!3m2!1spt-BR!2sbr!4v1680181950171!5m2!1spt-BR!2sbr"
                         width="300" height="250"
